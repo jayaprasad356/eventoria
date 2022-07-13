@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        android:layout_marginTop="10dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+
+            >
+
+
+
+            <ImageView
+                android:id="@+id/imgVenue"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/venue_img"
+                android:layout_margin="10dp"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:id="@+id/tvVenuename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Restaurant\nTaj"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="20,000"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/black"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1 - 4 hours"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/secodary"
+                android:textSize="14dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30 people"
+                android:layout_marginLeft="20dp"
+                android:textColor="@color/Text_light"
+                android:textSize="12dp"
+                android:layout_marginBottom="20dp"
+                />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ProfileFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_gravity="center"
+                android:background="@drawable/profileholder"/>
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:textColor="@color/black"
+                android:layout_marginTop="14dp"
+                />
+
+
+            <TextView
+                android:id="@+id/tvMobileno"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text=""
+                android:gravity="center"
+                android:textSize="12dp"
+                android:textColor="@color/Text_light"
+                android:layout_marginTop="8dp"
+                />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:orientation="vertical"
+            android:layout_marginTop="50dp"
+            >
+
+
+
+            <TextView
+                android:id="@+id/tvMyprofile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Profile"
+                android:textSize="12dp"
+                android:layout_marginBottom="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Payment Settings"
+                android:textSize="12dp"
+                android:layout_marginBottom="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+            <TextView
+                android:id="@+id/myorder_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="My Order"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+            <TextView
+                android:id="@+id/notification_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notification"
+                android:textSize="12dp"
+                android:layout_marginBottom="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:textSize="12dp"
+                android:layout_marginBottom="14dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+            <TextView
+                android:id="@+id/contact_us_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+
+            <Button
+                android:id="@+id/signOut"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:text="Sign Out"
+                android:textAllCaps="false"
+                android:layout_margin="50dp"
+                app:shapeAppearance="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day"
+
+                />
+
+
+
+        </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

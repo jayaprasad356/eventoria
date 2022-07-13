@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_addressdetails.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_change_address.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_checkout.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_myprofile.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_oder_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_otp.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_packagedetails.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_profile.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_splash.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_successfully_booked.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/activity_venue_list.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/category_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/fragment_profile.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/order_items.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/package_item.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/layout/recommended_item.xml" value="0.17552083333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
