@@ -29,6 +29,9 @@ public class Constant {
     public static final String FOLLOW_ID = "follow_id";
     public static final String TOTAL = "total";
     public static final String IMAGE = "image";
+    public static final String VENUE_NAME = "venue_name";
+    public static final String VENUE_IMG = "venue_img";
+    public static final String VENUE_ADDRESS = "venue_address";
     public static final String IMAGE_PACKAGE = "image";
     public static final String PACKAGE_NAME = "package_name";
     public static final String PACKAGE_PRICE = "package_price";
@@ -46,6 +49,10 @@ public class Constant {
     public static final  String PACKAGE_ID = "package_id";
     public static final String DISTRICT = "district";
     public static final String TYPE = "type";
+    public static final String TIME_SLOT_ID = "time_slot_id";
+    public static final String VENUE_ID = "venue_id";
+    public static String VENUE_ID_VAL = "";
+    public static String TIME_SLOT_ID_VAL = "";
     public static final String FILE = "file";
     public static final String CAPTION = "caption";
     public static final String THUMBNAIL = "thumbnail";

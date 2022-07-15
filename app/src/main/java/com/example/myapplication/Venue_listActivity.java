@@ -66,6 +66,7 @@ public class Venue_listActivity extends AppCompatActivity {
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
+                        Log.d("ALL_V_ARR",jsonArray.toString());
                         Gson g = new Gson();
                         ArrayList<Venue> venues = new ArrayList<>();
 

@@ -1,18 +1,23 @@
 package com.example.myapplication.model;
 
-public class Venue {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Venue implements Serializable {
     String id,name,address,cover_image,price,pincode;
+    ArrayList<TimeSlots> timeslots;
     public Venue(){
 
     }
 
-    public Venue(String id, String name, String address, String cover_image, String price, String pincode) {
+    public Venue(String id, String name, String address, String cover_image, String price, String pincode, ArrayList<TimeSlots> timeslots) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.cover_image = cover_image;
         this.price = price;
         this.pincode = pincode;
+        this.timeslots = timeslots;
     }
 
     public String getId() {
@@ -61,5 +66,13 @@ public class Venue {
 
     public void setPincode(String pincode) {
         this.pincode = pincode;
+    }
+
+    public ArrayList<TimeSlots> getTimeslots() {
+        return timeslots;
+    }
+
+    public void setTimeslots(ArrayList<TimeSlots> timeslots) {
+        this.timeslots = timeslots;
     }
 }

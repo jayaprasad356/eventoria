@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.PackagedetailsActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.helper.Constant;
+import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Category;
 import com.example.myapplication.model.Package;
 
@@ -25,6 +26,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class PackagelistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
     final ArrayList<Package> packages;
+    Session session;
 
     public PackagelistAdapter(Activity activity, ArrayList<Package> packages) {
         this.activity = activity;
@@ -40,6 +42,7 @@ public class PackagelistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Package aPackage = packages.get(position);
 
@@ -59,7 +62,7 @@ public class PackagelistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 intent.putExtra(Constant.PACKAGE_PRICE,aPackage.getPrice());
                 intent.putExtra(Constant.PACKAGE_DESCRIPTION,aPackage.getDescription());
                 Constant.PACKAGE_ID_VAL = aPackage.getId();
-                Constant.PACKAGE_PRICE_VAL = aPackage.getPrice();
+                session.setData(Constant.PRICE,aPackage.getPrice());
                         activity.startActivity(intent);
 
 

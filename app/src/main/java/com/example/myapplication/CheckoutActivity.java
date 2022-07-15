@@ -45,8 +45,8 @@ public class CheckoutActivity extends AppCompatActivity {
                 }
                 else if(rbBookaplace.isChecked()){
 
-//                    Intent intent = new Intent(CheckoutActivity.this,Venue_listActivity.class);
-//                    startActivity(intent);
+                    Intent intent = new Intent(CheckoutActivity.this,Venue_listActivity.class);
+                    startActivity(intent);
 
                 }
                 else {

@@ -2,6 +2,9 @@ package com.example.myapplication.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
+import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +19,12 @@ import com.example.myapplication.Package_listActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.VenuedetailsActivity;
 import com.example.myapplication.helper.Constant;
+import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Category;
+import com.example.myapplication.model.TimeSlots;
 import com.example.myapplication.model.Venue;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -26,6 +32,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class VenueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
     final ArrayList<Venue> venues;
+    Session session;
 
     public VenueAdapter(Activity activity, ArrayList<Venue> venues) {
         this.activity = activity;
@@ -41,6 +48,7 @@ public class VenueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Venue venue = venues.get(position);
 
@@ -50,11 +58,21 @@ public class VenueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d("VENUE_ARR",venue.getTimeslots().toString());
+//                Intent intent = new Intent(activity, VenuedetailsActivity.class);
+//                intent.putExtra("QuestionListExtra", venue.getTimeslots());
+//                activity.startActivity(intent);
 
-
+                session.setData(Constant.VENUE_ID,venue.getId());
 
                 Intent intent = new Intent(activity, VenuedetailsActivity.class);
+                Bundle args = new Bundle();
+                args.putSerializable("ARRAYLIST",(Serializable)venue.getTimeslots());
+                intent.putExtra("BUNDLE",args);
                 activity.startActivity(intent);
+
+
+
 
 
             }
