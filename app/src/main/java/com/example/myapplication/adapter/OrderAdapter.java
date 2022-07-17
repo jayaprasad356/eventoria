@@ -43,9 +43,14 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         final Order order = orders.get(position);
 
         holder.tvOrderId.setText("Booking Id : "+order.getId());
-        holder.tvAddress.setText("Address : "+order.getName()+"\n"+order.getAddress()+","+order.getDistrict()+","+order.getState()+","+order.getPincode());
+        holder.tvAddress.setText("Address : "+order.getAddress());
         holder.tvPackageName.setText("Package Name : "+order.getPackage_name());
         holder.tvPackagePrice.setText("Rs."+order.getPrice());
+        if (order.getType().equals("venue")){
+            holder.tvTime.setText(order.getStart_time() +" - "+order.getEnd_time());
+
+
+        }
 
     }
 
@@ -57,13 +62,14 @@ public class OrderAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
 
-        final TextView tvOrderId,tvAddress,tvPackageName,tvPackagePrice;
+        final TextView tvOrderId,tvAddress,tvPackageName,tvPackagePrice,tvTime;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);
             tvOrderId = itemView.findViewById(R.id.tvOrderId);
             tvAddress = itemView.findViewById(R.id.tvAddress);
             tvPackageName = itemView.findViewById(R.id.tvPackageName);
             tvPackagePrice = itemView.findViewById(R.id.tvPackagePrice);
+            tvTime = itemView.findViewById(R.id.tvTime);
 
 
         }

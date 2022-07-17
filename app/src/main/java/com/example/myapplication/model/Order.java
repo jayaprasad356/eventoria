@@ -1,20 +1,20 @@
 package com.example.myapplication.model;
 
 public class Order {
-    String id,package_name,price,name,address,district,pincode,state;
+    String id,package_name,price,name,address,start_time,end_time,type;
     public Order(){
 
     }
 
-    public Order(String id, String package_name, String price, String name, String address, String district, String pincode, String state) {
+    public Order(String id, String package_name, String price, String name, String address, String start_time, String end_time, String type) {
         this.id = id;
         this.package_name = package_name;
         this.price = price;
         this.name = name;
         this.address = address;
-        this.district = district;
-        this.pincode = pincode;
-        this.state = state;
+        this.start_time = start_time;
+        this.end_time = end_time;
+        this.type = type;
     }
 
     public String getId() {
@@ -57,27 +57,27 @@ public class Order {
         this.address = address;
     }
 
-    public String getDistrict() {
-        return district;
+    public String getStart_time() {
+        return start_time;
     }
 
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setStart_time(String start_time) {
+        this.start_time = start_time;
     }
 
-    public String getPincode() {
-        return pincode;
+    public String getEnd_time() {
+        return end_time;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
+    public void setEnd_time(String end_time) {
+        this.end_time = end_time;
     }
 
-    public String getState() {
-        return state;
+    public String getType() {
+        return type;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setType(String type) {
+        this.type = type;
     }
 }

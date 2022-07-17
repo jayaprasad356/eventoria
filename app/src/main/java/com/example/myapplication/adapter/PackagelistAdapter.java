@@ -58,6 +58,10 @@ public class PackagelistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
                 Intent intent = new Intent(activity, PackagedetailsActivity.class);
                 intent.putExtra(Constant.IMAGE_PACKAGE,aPackage.getCover_photo());
+                intent.putExtra(Constant.IMAGE1,aPackage.getImage1());
+                intent.putExtra(Constant.IMAGE2,aPackage.getImage2());
+                intent.putExtra(Constant.IMAGE3,aPackage.getImage3());
+                intent.putExtra(Constant.IMAGE4,aPackage.getImage4());
                 intent.putExtra(Constant.PACKAGE_NAME,aPackage.getName());
                 intent.putExtra(Constant.PACKAGE_PRICE,aPackage.getPrice());
                 intent.putExtra(Constant.PACKAGE_DESCRIPTION,aPackage.getDescription());

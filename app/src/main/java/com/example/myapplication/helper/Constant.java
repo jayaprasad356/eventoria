@@ -1,8 +1,8 @@
 package com.example.myapplication.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "http://eventoriaplus.greymatterworks.in/";
-    //public static final String MainBaseUrl = "http://192.168.43.38/eventoria_plus/";
+    //public static final String MainBaseUrl = "http://eventoriaplus.greymatterworks.in/";
+    public static final String MainBaseUrl = "http://192.168.43.38/eventoria_plus/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String LOGIN_URL = BaseUrl + "login.php";
     public static final String SIGN_UP = BaseUrl + "signup.php";
@@ -33,6 +33,10 @@ public class Constant {
     public static final String VENUE_IMG = "venue_img";
     public static final String VENUE_ADDRESS = "venue_address";
     public static final String IMAGE_PACKAGE = "image";
+    public static final String IMAGE1 = "image1";
+    public static final String IMAGE2 = "image2";
+    public static final String IMAGE3 = "image3";
+    public static final String IMAGE4 = "image4";
     public static final String PACKAGE_NAME = "package_name";
     public static final String PACKAGE_PRICE = "package_price";
     public static final String PACKAGE_DESCRIPTION = "package_description";

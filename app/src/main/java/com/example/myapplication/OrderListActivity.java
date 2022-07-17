@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CompoundButton;
 import android.widget.Toast;
 
 import com.example.myapplication.adapter.OrderAdapter;
@@ -17,6 +18,7 @@ import com.example.myapplication.helper.Constant;
 import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Order;
 import com.example.myapplication.model.Venue;
+import com.google.android.material.chip.Chip;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -32,17 +34,38 @@ public class OrderListActivity extends AppCompatActivity {
     Activity activity;
     OrderAdapter orderAdapter;
     Session session;
-
+    Chip Myaddress,Venueaddress;
+    String type = "own";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_oder_list);
         recyclerView = findViewById(R.id.recyclerView);
+        Myaddress = findViewById(R.id.Myaddress);
+        Venueaddress = findViewById(R.id.Venueaddress);
         activity = OrderListActivity.this;
         session = new Session(activity);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         recyclerView.setLayoutManager(linearLayoutManager);
+        Myaddress.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    type = "own";
+                    orderList();
+                }
+            }
+        });
+        Venueaddress.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b){
+                    type = "venue";
+                    orderList();
+                }
+            }
+        });
         orderList();
 
 
@@ -60,8 +83,9 @@ public class OrderListActivity extends AppCompatActivity {
 
     private void orderList()
     {
+
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.TYPE,"own");
+        params.put(Constant.TYPE,type);
         params.put(Constant.USER_ID,session.getData(Constant.ID));
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {

@@ -74,11 +74,18 @@
                 android:id="@+id/tvPackagePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
                 android:text="Rs. 13,000"
                 android:textColor="@color/secodary"
                 android:textSize="18dp"
                 android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/black"
+                android:textSize="14dp" />
 
 
         </LinearLayout>

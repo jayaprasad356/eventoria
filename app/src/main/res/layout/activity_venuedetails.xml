@@ -45,24 +45,33 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
             app:cardCornerRadius="20dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginRight="50dp"
             >
-
-
-
-
-            <ImageView
-                android:scaleType="fitXY"
-                android:id="@+id/imgVenue"
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/image_slider"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:background="@drawable/pack_img" />
+                android:layout_height="250dp"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="center_horizontal|bottom"
+                app:sliderIndicatorMargin="15dp"
+                app:sliderIndicatorOrientation="horizontal"
+                app:sliderIndicatorPadding="3dp"
+                app:sliderIndicatorRadius="2dp"
+                app:sliderIndicatorSelectedColor="#5A5A5A"
+                app:sliderIndicatorUnselectedColor="#FFF"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true"
+
+                />
+
 
         </com.google.android.material.card.MaterialCardView>
-
 
         <TextView
             android:id="@+id/tvVenuename"
@@ -124,18 +133,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-
-
-        <Button
-            android:id="@+id/start_booking_btn"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="100dp"
-            android:text="Start booking"
-            android:textAllCaps="false"
-            app:shapeAppearance="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day" />
 
 
     </LinearLayout>
