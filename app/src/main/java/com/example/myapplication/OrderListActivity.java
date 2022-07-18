@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.myapplication.adapter.OrderAdapter;
@@ -36,6 +38,7 @@ public class OrderListActivity extends AppCompatActivity {
     Session session;
     Chip Myaddress,Venueaddress;
     String type = "own";
+    ImageView back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,7 @@ public class OrderListActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         Myaddress = findViewById(R.id.Myaddress);
         Venueaddress = findViewById(R.id.Venueaddress);
+        back_btn = findViewById(R.id.back_btn);
         activity = OrderListActivity.this;
         session = new Session(activity);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
@@ -57,15 +61,13 @@ public class OrderListActivity extends AppCompatActivity {
                 }
             }
         });
-        Venueaddress.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if (b){
-                    type = "venue";
-                    orderList();
-                }
+        Venueaddress.setOnCheckedChangeListener((compoundButton, b) -> {
+            if (b){
+                type = "venue";
+                orderList();
             }
         });
+        back_btn.setOnClickListener(view -> onBackPressed());
         orderList();
 
 

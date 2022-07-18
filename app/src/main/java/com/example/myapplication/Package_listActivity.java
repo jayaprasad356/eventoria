@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ public class Package_listActivity extends AppCompatActivity {
     PackagelistAdapter packagelistAdapter;
     String  categoryId;
     Session session;
+    ImageView back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +50,20 @@ public class Package_listActivity extends AppCompatActivity {
 
 
         recyclerView = findViewById(R.id.recyclerView);
+        back_btn = findViewById(R.id.back_btn);
         activity = Package_listActivity.this;
         session = new Session(activity);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
         recyclerView.setLayoutManager(gridLayoutManager);
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         Packagelist();
 

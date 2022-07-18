@@ -1,8 +1,8 @@
 package com.example.myapplication.helper;
 
 public class Constant {
-    //public static final String MainBaseUrl = "http://eventoriaplus.greymatterworks.in/";
-    public static final String MainBaseUrl = "http://192.168.43.38/eventoria_plus/";
+    public static final String MainBaseUrl = "http://eventoriaplus.greymatterworks.in/";
+    //public static final String MainBaseUrl = "http://192.168.43.38/eventoria_plus/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String LOGIN_URL = BaseUrl + "login.php";
     public static final String SIGN_UP = BaseUrl + "signup.php";
