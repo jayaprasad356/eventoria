@@ -17,12 +17,57 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="4dp"
+                >
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="Category"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
+
+
+                <TextView
+                    android:id="@+id/tvViewCat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerInParent="true"
+                    android:text="View All"
+                    android:textColor="@color/secodary"
+                    android:textSize="12dp"
+                    android:textStyle="bold" />
+
+
+
+
+            </RelativeLayout>
+
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:reverseLayout="true"
+                android:layout_marginLeft="10dp"
+                />
+
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
                 />
 
 
@@ -30,20 +75,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="0dp"
                 >
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="14dp"
                     android:text="Our Best Collection"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
+                    android:gravity="center_vertical"
                     android:textStyle="bold" />
 
 
@@ -52,12 +96,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_centerInParent="true"
                     android:text="View All"
-                    android:visibility="invisible"
                     android:textColor="@color/secodary"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
 
@@ -94,32 +136,37 @@
                     app:sliderIndicatorSelectedColor="#5A5A5A"
                     app:sliderIndicatorUnselectedColor="#FFF"
                     app:sliderScrollTimeInSec="2"
-                    app:sliderStartAutoCycle="true"
-
-                    />
+                    app:sliderStartAutoCycle="true" />
 
 
             </com.google.android.material.card.MaterialCardView>
 
 
 
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                />
+
+
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="0dp"
                 >
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="14dp"
+                    android:gravity="center_vertical"
                     android:text="Recommended Package"
                     android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:textStyle="bold" />
 
 
@@ -128,12 +175,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginRight="40dp"
+                    android:layout_centerInParent="true"
                     android:text="View All"
-                    android:visibility="invisible"
                     android:textColor="@color/secodary"
-                    android:textSize="14dp"
+                    android:textSize="12dp"
                     android:textStyle="bold" />
 
 

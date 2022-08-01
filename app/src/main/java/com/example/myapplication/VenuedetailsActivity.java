@@ -12,7 +12,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.adapter.OrderAdapter;
@@ -27,10 +29,15 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
+import com.vivekkaushik.datepicker.DatePickerTimeline;
+import com.vivekkaushik.datepicker.OnDateSelectedListener;
 
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+
+
 
 public class VenuedetailsActivity extends AppCompatActivity {
 
@@ -42,6 +49,9 @@ public class VenuedetailsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<TimeSlots> timeSlots = new ArrayList<>();
     SliderView sliderView;
+    DatePickerTimeline datePickerTimeline;
+    RelativeLayout rlTimeslot;
+    TextView tvTimeslot,tvTimeslotAmt;
     private SliderAdapterExample adapter;
 
 
@@ -86,6 +96,58 @@ public class VenuedetailsActivity extends AppCompatActivity {
         Bundle args = intent.getBundleExtra("BUNDLE");
         timeSlots = (ArrayList<TimeSlots>) args.getSerializable("ARRAYLIST");
         timeslotList();
+
+
+        Calendar c = Calendar.getInstance();
+
+        int year=c.get(Calendar.YEAR);
+        int date=c.get(Calendar.DATE);
+        int month=c.get(Calendar.MONTH);
+
+
+
+
+        datePickerTimeline = findViewById(R.id.datePickerTimeline);
+        datePickerTimeline.setDateTextColor(Color.BLUE);
+        datePickerTimeline.setDayTextColor(Color.BLACK);
+        datePickerTimeline.setMonthTextColor(Color.DKGRAY);
+        datePickerTimeline.setInitialDate(year,month, date);
+        datePickerTimeline.setOnDateSelectedListener(new OnDateSelectedListener() {
+            @Override
+            public void onDateSelected(int year, int month, int day, int dayOfWeek) {
+
+
+                //Do Something
+            }
+        });
+
+        rlTimeslot = findViewById(R.id.rlTimeslot);
+        tvTimeslot = findViewById(R.id.tvTimeslot);
+        tvTimeslotAmt = findViewById(R.id.tvTimeslotAmt);
+
+        rlTimeslot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tvTimeslot.setTextColor(Color.BLUE);
+                tvTimeslotAmt.setTextColor(Color.BLUE);
+                rlTimeslot.setBackgroundResource(R.drawable.timeslot_selected);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
     private void timeslotList()

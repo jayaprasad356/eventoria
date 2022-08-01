@@ -205,7 +205,7 @@ public class HomeFragment extends Fragment {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-                        ArrayList<Category> categories = new ArrayList<>();
+                        ArrayList<Category>  categories = new ArrayList<>();
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -218,6 +218,7 @@ public class HomeFragment extends Fragment {
                             }
                         }
 
+                        //important
                         categoryAdapter = new CategoryAdapter(activity, categories);
                         recyclerView.setAdapter(categoryAdapter);
 

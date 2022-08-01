@@ -13,6 +13,8 @@
     <color name="primary">#03314B</color>
     <color name="Text_light">#393939</color>
     <color name="background_color">#F4F5F9</color>
+    <color name="Ltgray">#f5f5f5</color>
+
 
 
 </resources>

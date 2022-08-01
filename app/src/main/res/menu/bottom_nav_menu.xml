@@ -2,9 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
+
+
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"
+
+        />
+
     <item
         android:id="@+id/gift"
-        android:title=""
+        android:title="Gift"
         android:icon="@drawable/ic_gift_icon"
         android:iconTintMode="add"
 
@@ -12,17 +23,13 @@
 
 
 
-    <item
-        android:id="@+id/home"
-        android:enabled="false"
-        android:title="" />
 
 
 
 
     <item
         android:id="@+id/profile"
-        android:title=""
+        android:title="Profile"
         android:icon="@drawable/ic_profile"
 
 

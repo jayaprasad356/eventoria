@@ -63,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements NavigationBarView
                 getSupportFragmentManager().beginTransaction().replace(R.id.f1fragment,profileFragment).commit();
                 return true;
 
+            case R.id.home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.f1fragment,homeFragment).commit();
+                return true;
+
         }
 
 
