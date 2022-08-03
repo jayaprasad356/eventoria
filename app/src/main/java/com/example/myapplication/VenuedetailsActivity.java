@@ -1,7 +1,7 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -11,20 +11,15 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.example.myapplication.adapter.OrderAdapter;
 import com.example.myapplication.adapter.SliderAdapterExample;
 import com.example.myapplication.adapter.TimeSlotsAdapter;
 import com.example.myapplication.helper.Constant;
-import com.example.myapplication.model.Order;
+import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Slide;
 import com.example.myapplication.model.TimeSlots;
-import com.google.gson.Gson;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
@@ -32,8 +27,8 @@ import com.smarteist.autoimageslider.SliderView;
 import com.vivekkaushik.datepicker.DatePickerTimeline;
 import com.vivekkaushik.datepicker.OnDateSelectedListener;
 
-import org.json.JSONObject;
-
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -50,16 +45,16 @@ public class VenuedetailsActivity extends AppCompatActivity {
     ArrayList<TimeSlots> timeSlots = new ArrayList<>();
     SliderView sliderView;
     DatePickerTimeline datePickerTimeline;
-    RelativeLayout rlTimeslot;
-    TextView tvTimeslot,tvTimeslotAmt;
     private SliderAdapterExample adapter;
-
-
+    Button btnConfirm;
+    String slotday = "";
+    Session session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_venuedetails);
         activity = VenuedetailsActivity.this;
+        session = new Session(activity);
         sliderView = findViewById(R.id.image_slider);
         Venuename = getIntent().getStringExtra(Constant.VENUE_NAME);
         VenueAddress = getIntent().getStringExtra(Constant.VENUE_ADDRESS);
@@ -67,6 +62,7 @@ public class VenuedetailsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         tvAddress = findViewById(R.id.tvAddress);
         tvVenuename = findViewById(R.id.tvVenuename);
+        btnConfirm = findViewById(R.id.btnConfirm);
         image1 = getIntent().getStringExtra(Constant.IMAGE1);
         image2 = getIntent().getStringExtra(Constant.IMAGE2);
         image3 = getIntent().getStringExtra(Constant.IMAGE3);
@@ -88,10 +84,11 @@ public class VenuedetailsActivity extends AppCompatActivity {
                 Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
             }
         });
+
         tvVenuename.setText(Venuename);
         tvAddress.setText(VenueAddress);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("BUNDLE");
         timeSlots = (ArrayList<TimeSlots>) args.getSerializable("ARRAYLIST");
@@ -116,38 +113,58 @@ public class VenuedetailsActivity extends AppCompatActivity {
             @Override
             public void onDateSelected(int year, int month, int day, int dayOfWeek) {
 
+                month = month + 1;
+                slotday = convertTwodigit(year) +"-"+ convertTwodigit(month) +"-"+ convertTwodigit(day);
+                Log.d("DATE_SELECTED",slotday);
+
 
                 //Do Something
             }
         });
-
-        rlTimeslot = findViewById(R.id.rlTimeslot);
-        tvTimeslot = findViewById(R.id.tvTimeslot);
-        tvTimeslotAmt = findViewById(R.id.tvTimeslotAmt);
-
-        rlTimeslot.setOnClickListener(new View.OnClickListener() {
+        btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                tvTimeslot.setTextColor(Color.BLUE);
-                tvTimeslotAmt.setTextColor(Color.BLUE);
-                rlTimeslot.setBackgroundResource(R.drawable.timeslot_selected);
+            public void onClick(View view) {
+                ArrayList<String> timeSlotsId = new ArrayList<String>();
+                int totalprice = 0;
+                for (TimeSlots model : timeSlots) {
+                    if (model.isSelected()) {
+                        timeSlotsId.add(model.getId());
+                        totalprice = Integer.parseInt(model.getPrices());
+
+                    }
+                }
+                if (slotday.equals("")){
+                    Toast.makeText(activity, "Select Date", Toast.LENGTH_SHORT).show();
+
+                }
+                else if (timeSlotsId.size() == 0){
+                    Toast.makeText(activity, "Select Time Slot", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    session.setData(Constant.EVENT_DATE,slotday);
+
+                    session.setData(Constant.TIME_SLOT_ID,timeSlotsId.toString());
+                    int price = Integer.parseInt(session.getData(Constant.PRICE));
+                    price = price + totalprice;
+                    session.setData(Constant.PRICE,""+price);
+                    Intent intent = new Intent(activity, Successfully_bookedActivity.class);
+                    intent.putExtra(Constant.TYPE,"venue");
+                    activity.startActivity(intent);
+
+                }
+
+                Log.d("TIME_SLOT_ID",timeSlotsId.toString());
             }
         });
 
 
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
+    private String convertTwodigit(int s)
+    {
+        long val = (long) s;
+        String format = "%1$02d";
+        return (String.format(format,val));
     }
 
     private void timeslotList()

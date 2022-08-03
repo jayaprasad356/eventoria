@@ -46,6 +46,7 @@ public class Constant {
     public static final String ADDRESS = "address";
     public static final String ADDRESS_ID = "address_id";
     public static final String PRICE = "price";
+    public static final String EVENT_DATE = "event_date";
     public static String ADDRESS_ID_VAL = "";
     public static String TYPE_VAL = "";
     public static String PACKAGE_ID_VAL = "";

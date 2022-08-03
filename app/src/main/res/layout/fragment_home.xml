@@ -12,19 +12,18 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
+            android:orientation="vertical">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_marginBottom="4dp"
-                >
+                android:layout_marginBottom="4dp">
 
 
                 <TextView
@@ -49,8 +48,6 @@
                     android:textStyle="bold" />
 
 
-
-
             </RelativeLayout>
 
 
@@ -58,50 +55,33 @@
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:reverseLayout="true"
                 android:layout_marginLeft="10dp"
-                />
+                android:orientation="horizontal"
+                app:reverseLayout="true" />
 
 
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                />
-
+                android:layout_margin="20dp" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="0dp"
-                >
+                android:layout_marginRight="10dp">
 
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
                     android:text="Our Best Collection"
                     android:textColor="@color/black"
                     android:textSize="16dp"
-                    android:gravity="center_vertical"
                     android:textStyle="bold" />
-
-
-                <TextView
-                    android:id="@+id/viewall_bestcollection_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_centerInParent="true"
-                    android:text="View All"
-                    android:textColor="@color/secodary"
-                    android:textSize="12dp"
-                    android:textStyle="bold" />
-
 
 
 
@@ -112,12 +92,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
                 android:layout_marginTop="10dp"
-                app:cardCornerRadius="20dp"
-                >
-
-
+                android:layout_marginRight="30dp"
+                app:cardCornerRadius="20dp">
 
 
                 <com.smarteist.autoimageslider.SliderView
@@ -142,22 +119,18 @@
             </com.google.android.material.card.MaterialCardView>
 
 
-
             <com.google.android.material.divider.MaterialDivider
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                />
-
+                android:layout_margin="20dp" />
 
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_marginTop="0dp"
-                >
+                android:layout_marginRight="10dp">
 
 
                 <TextView
@@ -177,14 +150,10 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerInParent="true"
                     android:text="View All"
+                    android:visibility="invisible"
                     android:textColor="@color/secodary"
                     android:textSize="12dp"
                     android:textStyle="bold" />
-
-
-
-
-
 
 
             </RelativeLayout>
@@ -195,10 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:reverseLayout="true"
-                />
-
-
+                app:reverseLayout="true" />
 
 
         </LinearLayout>

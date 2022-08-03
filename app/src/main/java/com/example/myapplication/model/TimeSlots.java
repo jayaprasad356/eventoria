@@ -4,16 +4,18 @@ import java.io.Serializable;
 
 public class TimeSlots implements Serializable {
     String id,venue_id,start_time,end_time,prices;
+    private boolean isSelected = false;
     public TimeSlots(){
 
     }
 
-    public TimeSlots(String id, String venue_id, String start_time, String end_time, String prices) {
+    public TimeSlots(String id, String venue_id, String start_time, String end_time, String prices, boolean isSelected) {
         this.id = id;
         this.venue_id = venue_id;
         this.start_time = start_time;
         this.end_time = end_time;
         this.prices = prices;
+        this.isSelected = isSelected;
     }
 
     public String getId() {
@@ -54,5 +56,13 @@ public class TimeSlots implements Serializable {
 
     public void setPrices(String prices) {
         this.prices = prices;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
     }
 }

@@ -12,22 +12,18 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.CategoryListActivity;
 import com.example.myapplication.Package_listActivity;
-import com.example.myapplication.PackagedetailsActivity;
 import com.example.myapplication.R;
-import com.example.myapplication.SliderItem;
 import com.example.myapplication.adapter.CategoryAdapter;
-import com.example.myapplication.adapter.PackagelistAdapter;
 import com.example.myapplication.adapter.RecommendedAdapter;
 import com.example.myapplication.adapter.SliderAdapterExample;
 import com.example.myapplication.helper.ApiConfig;
 import com.example.myapplication.helper.Constant;
 import com.example.myapplication.model.Category;
-import com.example.myapplication.model.Package;
 import com.example.myapplication.model.Recommend;
 import com.example.myapplication.model.Slide;
 import com.google.gson.Gson;
@@ -35,7 +31,6 @@ import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnima
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
 import com.smarteist.autoimageslider.SliderAnimations;
 import com.smarteist.autoimageslider.SliderView;
-import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,7 +38,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -53,13 +47,14 @@ public class HomeFragment extends Fragment {
     private SliderAdapterExample adapter;
     RecyclerView recyclerView,recyclerView1;
     Activity activity;
+    TextView tvViewCat;
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
 
-    TextView viewall_bestcollection_tv,viewall_package;
+    TextView viewall_package;
     int[] images = {R.drawable.profile_img,
             R.drawable.profile_img};
     CategoryAdapter categoryAdapter;
@@ -78,6 +73,7 @@ public class HomeFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.recyclerView);
         recyclerView1 = root.findViewById(R.id.recyclerView1);
+        tvViewCat = root.findViewById(R.id.tvViewCat);
 
         activity = getActivity();
 
@@ -86,8 +82,6 @@ public class HomeFragment extends Fragment {
 
 
         viewall_package = root.findViewById(R.id.viewall_package);
-        viewall_bestcollection_tv = root.findViewById(R.id.viewall_bestcollection_tv);
-
 
 
         adapter = new SliderAdapterExample(getActivity());
@@ -107,22 +101,19 @@ public class HomeFragment extends Fragment {
                 Log.i("GGG", "onIndicatorClicked: " + sliderView.getCurrentPagePosition());
             }
         });
-
-
-
-
-        viewall_bestcollection_tv.setOnClickListener(new View.OnClickListener() {
+        viewall_package.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), Package_listActivity.class);
                 startActivity(intent);
             }
         });
-        viewall_package.setOnClickListener(new View.OnClickListener() {
+        tvViewCat.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Package_listActivity.class);
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), CategoryListActivity.class);
                 startActivity(intent);
+
             }
         });
 
@@ -196,8 +187,6 @@ public class HomeFragment extends Fragment {
 
         Map<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
-            Log.d("CAT_RES",response);
-
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
@@ -206,6 +195,7 @@ public class HomeFragment extends Fragment {
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
                         ArrayList<Category>  categories = new ArrayList<>();
+                        int totalsize = 0;
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -217,9 +207,15 @@ public class HomeFragment extends Fragment {
                                 break;
                             }
                         }
+                        if (categories.size() > 5){
+                            totalsize = 5;
+                        }
+                        else {
+                            totalsize = categories.size();
+                        }
 
                         //important
-                        categoryAdapter = new CategoryAdapter(activity, categories);
+                        categoryAdapter = new CategoryAdapter(activity, categories, R.layout.category_item, totalsize);
                         recyclerView.setAdapter(categoryAdapter);
 
 

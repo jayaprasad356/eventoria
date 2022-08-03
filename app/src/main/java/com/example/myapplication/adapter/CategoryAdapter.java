@@ -2,16 +2,13 @@ package com.example.myapplication.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -21,27 +18,25 @@ import com.example.myapplication.helper.Constant;
 import com.example.myapplication.model.Category;
 
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import de.hdodenhof.circleimageview.CircleImageView;
 
 public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     final Activity activity;
     final ArrayList<Category> categories;
+    final int layout;
+    final int totalsize;
 
-    public CategoryAdapter(Activity activity, ArrayList<Category> categories) {
+
+    public CategoryAdapter(Activity activity, ArrayList<Category> categories, int layout, int totalsize) {
         this.activity = activity;
         this.categories = categories;
+        this.layout = layout;
+        this.totalsize = totalsize;
     }
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(activity).inflate(R.layout.category_item, parent, false);
+        View view = LayoutInflater.from(activity).inflate(layout, parent, false);
         return new ExploreItemHolder(view);
     }
 
@@ -66,12 +61,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public int getItemCount() {
-        return categories.size();
+        return totalsize;
     }
 
     static class ExploreItemHolder extends RecyclerView.ViewHolder {
 
-        final CircleImageView imgCategory;
+        final ImageView imgCategory;
         final TextView tvCategoryname;
         public ExploreItemHolder(@NonNull View itemView) {
             super(itemView);

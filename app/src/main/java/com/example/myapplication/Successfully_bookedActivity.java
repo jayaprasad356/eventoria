@@ -74,6 +74,7 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         params.put(Constant.VENUE_ID,session.getData(Constant.VENUE_ID));
         params.put(Constant.ADDRESS_ID,Constant.ADDRESS_ID_VAL);
         params.put(Constant.PRICE,session.getData(Constant.PRICE));
+        params.put(Constant.EVENT_DATE,session.getData(Constant.EVENT_DATE));
         params.put(Constant.TYPE,Type);
         params.put(Constant.TIME_SLOT_ID,session.getData(Constant.TIME_SLOT_ID));
          ApiConfig.RequestToVolley((result, response) -> {
@@ -81,8 +82,6 @@ public class Successfully_bookedActivity extends AppCompatActivity {
 
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-
-
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                         success_rl.setVisibility(View.VISIBLE);
                     }
