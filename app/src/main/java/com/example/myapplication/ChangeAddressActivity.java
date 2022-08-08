@@ -81,9 +81,11 @@ public class ChangeAddressActivity extends AppCompatActivity {
 
                                 if (jsonObject.getBoolean(Constant.SUCCESS)) {
                                     JSONArray jsonArray = jsonObject.getJSONArray(Constant.DATA);
-                                    Intent intent = new Intent(ChangeAddressActivity.this,Successfully_bookedActivity.class);
+                                    Intent intent = new Intent(ChangeAddressActivity.this, MysummaryActivity.class);
                                     Constant.ADDRESS_ID_VAL = jsonArray.getJSONObject(0).getString(Constant.ID);
                                     intent.putExtra(Constant.TYPE,"own");
+                                    intent.putExtra(Constant.ADDRESS,etName.getText().toString().trim()+",\n"+etAddress.getText().toString().trim()+",\n"+
+                                            etDistrict.getText().toString().trim()+",\n"+etState.getText().toString()+",\n"+etPincode.getText().toString().trim());
                                     startActivity(intent);
                                     finish();
                                 }

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.adapter.SliderAdapterExample;
 import com.example.myapplication.helper.Constant;
+import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Slide;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
 import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
@@ -33,6 +34,7 @@ public class PackagedetailsActivity extends AppCompatActivity {
     Activity activity;
     SliderView sliderView;
     private SliderAdapterExample adapter;
+    Session session;
 
 
     @Override
@@ -40,6 +42,7 @@ public class PackagedetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_packagedetails);
         activity = PackagedetailsActivity.this;
+        session = new Session(activity);
         sliderView = findViewById(R.id.image_slider);
         getPackage_img = getIntent().getStringExtra(Constant.IMAGE_PACKAGE);
         getPackage_name = getIntent().getStringExtra(Constant.PACKAGE_NAME);
@@ -80,6 +83,9 @@ public class PackagedetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(PackagedetailsActivity.this,CheckoutActivity.class);
+                session.setData(Constant.PACKAGE_IMAGE,image1);
+                session.setData(Constant.PACKAGE_NAME,getPackage_name);
+                session.setData(Constant.PACKAGE_PRICE,getPackage_price);
                 startActivity(intent);
             }
         });

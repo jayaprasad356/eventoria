@@ -52,6 +52,7 @@ public class Constant {
     public static String PACKAGE_ID_VAL = "";
     public static String PACKAGE_PRICE_VAL = "";
     public static final  String PACKAGE_ID = "package_id";
+    public static final  String PACKAGE_IMAGE = "package_image";
     public static final String DISTRICT = "district";
     public static final String TYPE = "type";
     public static final String TIME_SLOT_ID = "time_slot_id";

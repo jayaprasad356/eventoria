@@ -112,7 +112,6 @@ public class VenuedetailsActivity extends AppCompatActivity {
         datePickerTimeline.setOnDateSelectedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(int year, int month, int day, int dayOfWeek) {
-
                 month = month + 1;
                 slotday = convertTwodigit(year) +"-"+ convertTwodigit(month) +"-"+ convertTwodigit(day);
                 Log.d("DATE_SELECTED",slotday);

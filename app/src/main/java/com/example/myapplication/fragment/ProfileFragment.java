@@ -11,7 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.myapplication.AboutusActivity;
 import com.example.myapplication.Contact_usActivity;
+import com.example.myapplication.CouponActivity;
+import com.example.myapplication.FaqsActivity;
 import com.example.myapplication.MyprofileActivity;
 import com.example.myapplication.NotificationActivity;
 import com.example.myapplication.OrderListActivity;
@@ -21,7 +24,7 @@ import com.example.myapplication.helper.Session;
 
 public class ProfileFragment extends Fragment {
 
-    TextView myorder_tv,contact_us_tv,notification_tv,tvMyprofile,tvName,tvMobileno;
+    TextView myorder_tv,contact_us_tv,notification_tv,tvMyprofile,tvName,tvMobileno,tvFaqs,tvAboutus,tvCoupons;
     Button signOut;
     Session session ;
 
@@ -47,11 +50,37 @@ public class ProfileFragment extends Fragment {
         signOut = root.findViewById(R.id.signOut);
         tvName = root.findViewById(R.id.tvName);
         tvMobileno = root.findViewById(R.id.tvMobileno);
+        tvFaqs = root.findViewById(R.id.tvFaqs);
+        tvCoupons = root.findViewById(R.id.tvCoupons);
+        tvAboutus = root.findViewById(R.id.tvAboutus);
         session = new Session(getActivity());
+
+
         myorder_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), OrderListActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvFaqs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), FaqsActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvCoupons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CouponActivity.class);
+                startActivity(intent);
+            }
+        });
+        tvAboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), AboutusActivity.class);
                 startActivity(intent);
             }
         });
@@ -79,9 +108,12 @@ public class ProfileFragment extends Fragment {
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 session.logoutUser(getActivity());
             }
         });
+
+
         tvName.setText(session.getData(Constant.NAME));
         tvMobileno.setText(session.getData(Constant.MOBILE));
 

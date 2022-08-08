@@ -80,10 +80,10 @@
                 android:drawableEnd="@drawable/ic_arrow_right"
                 />
             <TextView
-                android:visibility="gone"
+                android:id="@+id/tvCoupons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Payment Settings"
+                android:text="Coupons"
                 android:textSize="12dp"
                 android:layout_marginBottom="14dp"
                 android:textStyle="bold"
@@ -104,7 +104,6 @@
                 />
 
             <TextView
-                android:visibility="gone"
                 android:id="@+id/notification_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -117,7 +116,7 @@
                 />
 
             <TextView
-                android:visibility="gone"
+                android:id="@+id/tvAboutus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="About Us"
@@ -133,6 +132,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Contact Us"
+                android:textSize="12dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="14dp"
+                android:textColor="@color/black"
+                android:drawableEnd="@drawable/ic_arrow_right"
+                />
+
+            <TextView
+                android:id="@+id/tvFaqs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="FAQ's"
                 android:textSize="12dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
