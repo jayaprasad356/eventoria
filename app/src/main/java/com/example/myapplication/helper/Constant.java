@@ -15,6 +15,8 @@ public class Constant {
     public static final String ORDER_LIST = BaseUrl + "orders-list.php";
     public static final String SLIDES_LIST = BaseUrl + "slides-list.php";
     public static final String UPDATE_PROFILE = BaseUrl + "updateprofile.php";
+    public static final String NOTIFICATION_LIST = BaseUrl + "notifications-list.php";
+    public static final String MYPROMOCODE = BaseUrl + "promocode-list.php";
 
     public static final String WebSiteUrl = ""; //Admin panel url
     public static final String ID = "id";
