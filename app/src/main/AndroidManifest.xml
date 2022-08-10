@@ -59,10 +59,23 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".VenueSummaryActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".TestActivity"
+            android:exported="true" >
+
+        </activity>
+        <activity
+            android:name=".AllPackageActivity"
+            android:exported="false" />
+        <activity
             android:name=".MysummaryActivity"
             android:exported="false" />
         <activity
-            android:name=".CouponActivity"
+            android:name=".PromoCodeActivity"
             android:exported="false" />
         <activity
             android:name=".FaqsActivity"

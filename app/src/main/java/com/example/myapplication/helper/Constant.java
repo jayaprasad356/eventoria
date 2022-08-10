@@ -11,17 +11,21 @@ public class Constant {
     public static final String CATEGORY_LIST = BaseUrl + "category-list.php";
     public static final String RECOMMENDED_LIST = BaseUrl + "recmd-packages-list.php";
     public static final String PACKAGE_LIST = BaseUrl + "package-listby-category.php";
+    public static final String ALLPACKAGE_LIST = BaseUrl + "packagelist.php";
     public static final String VENUE_LIST = BaseUrl + "venuelist.php";
     public static final String ORDER_LIST = BaseUrl + "orders-list.php";
     public static final String SLIDES_LIST = BaseUrl + "slides-list.php";
     public static final String UPDATE_PROFILE = BaseUrl + "updateprofile.php";
     public static final String NOTIFICATION_LIST = BaseUrl + "notifications-list.php";
     public static final String MYPROMOCODE = BaseUrl + "promocode-list.php";
+    public static final String VALIDATE_PROMO_CODE_URL = BaseUrl + "validate-promo-code.php";
 
     public static final String WebSiteUrl = ""; //Admin panel url
     public static final String ID = "id";
     public static final String PROFILE = "profile";
+    public static final String GET_PROMO_CODES = "get_promo_codes";
     public static final String USER_ID = "user_id";
+    public static final String PROMO_CODE = "promo_code";
     public static final String CATEGORY_ID = "category_id";
     public static final String SEARCH = "search";
     public static final String POST_ID = "post_id";
@@ -42,6 +46,7 @@ public class Constant {
     public static final String PACKAGE_NAME = "package_name";
     public static final String PACKAGE_PRICE = "package_price";
     public static final String PACKAGE_DESCRIPTION = "package_description";
+    public static final String VALIDATE_PROMO_CODE = "validate_promo_code";
     public static final String EMAIL = "email";
     public static final String VIDEO = "video";
     public static final String NAME = "name";
@@ -49,6 +54,9 @@ public class Constant {
     public static final String ADDRESS_ID = "address_id";
     public static final String PRICE = "price";
     public static final String EVENT_DATE = "event_date";
+    public static final String ERROR = "error";
+    public static final String TOTAL_PRICE = "total_price";
+    public static final String DISCOUNTED_AMOUNT = "discounted_amount";
     public static String ADDRESS_ID_VAL = "";
     public static String TYPE_VAL = "";
     public static String PACKAGE_ID_VAL = "";

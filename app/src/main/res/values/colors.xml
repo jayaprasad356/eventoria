@@ -15,6 +15,7 @@
     <color name="background_color">#F4F5F9</color>
     <color name="Ltgray">#f5f5f5</color>
     <color name="defaulttext">#808080</color>
+    <color name="transparent">#00000000</color>
 
 
 

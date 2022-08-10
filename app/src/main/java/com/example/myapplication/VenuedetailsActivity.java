@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
@@ -14,10 +15,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.adapter.DateSlotAdapter;
 import com.example.myapplication.adapter.SliderAdapterExample;
 import com.example.myapplication.adapter.TimeSlotsAdapter;
 import com.example.myapplication.helper.Constant;
 import com.example.myapplication.helper.Session;
+import com.example.myapplication.model.DateSlot;
 import com.example.myapplication.model.Slide;
 import com.example.myapplication.model.TimeSlots;
 import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType;
@@ -27,11 +30,13 @@ import com.smarteist.autoimageslider.SliderView;
 import com.vivekkaushik.datepicker.DatePickerTimeline;
 import com.vivekkaushik.datepicker.OnDateSelectedListener;
 
+import java.io.Serializable;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.util.GregorianCalendar;
 
 
 public class VenuedetailsActivity extends AppCompatActivity {
@@ -41,14 +46,16 @@ public class VenuedetailsActivity extends AppCompatActivity {
     String Venuename,VenueAddress,Venueimg,image1,image2,image3,image4;;
     Activity activity;
     TimeSlotsAdapter timeSlotsAdapter;
-    RecyclerView recyclerView;
+    RecyclerView recyclerView,daterecyclerView;
     ArrayList<TimeSlots> timeSlots = new ArrayList<>();
     SliderView sliderView;
-    DatePickerTimeline datePickerTimeline;
     private SliderAdapterExample adapter;
     Button btnConfirm;
-    String slotday = "";
+    public static String slotday = "";
     Session session;
+    DateSlotAdapter dateSlotAdapter;
+    ArrayList<DateSlot> dateSlots = new ArrayList<DateSlot>();
+    ArrayList<TimeSlots> selectedtimeSlots = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,9 +67,11 @@ public class VenuedetailsActivity extends AppCompatActivity {
         VenueAddress = getIntent().getStringExtra(Constant.VENUE_ADDRESS);
         Venueimg = getIntent().getStringExtra(Constant.VENUE_IMG);
         recyclerView = findViewById(R.id.recyclerView);
+        daterecyclerView = findViewById(R.id.daterecyclerView);
         tvAddress = findViewById(R.id.tvAddress);
         tvVenuename = findViewById(R.id.tvVenuename);
         btnConfirm = findViewById(R.id.btnConfirm);
+        daterecyclerView = findViewById(R.id.daterecyclerView);
         image1 = getIntent().getStringExtra(Constant.IMAGE1);
         image2 = getIntent().getStringExtra(Constant.IMAGE2);
         image3 = getIntent().getStringExtra(Constant.IMAGE3);
@@ -89,46 +98,39 @@ public class VenuedetailsActivity extends AppCompatActivity {
         tvAddress.setText(VenueAddress);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
         recyclerView.setLayoutManager(gridLayoutManager);
+
+        daterecyclerView.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.HORIZONTAL,false));
+
         Intent intent = getIntent();
         Bundle args = intent.getBundleExtra("BUNDLE");
         timeSlots = (ArrayList<TimeSlots>) args.getSerializable("ARRAYLIST");
         timeslotList();
 
 
-        Calendar c = Calendar.getInstance();
 
-        int year=c.get(Calendar.YEAR);
-        int date=c.get(Calendar.DATE);
-        int month=c.get(Calendar.MONTH);
-
-
-
-
-        datePickerTimeline = findViewById(R.id.datePickerTimeline);
-        datePickerTimeline.setDateTextColor(Color.BLUE);
-        datePickerTimeline.setDayTextColor(Color.BLACK);
-        datePickerTimeline.setMonthTextColor(Color.DKGRAY);
-        datePickerTimeline.setInitialDate(year,month, date);
-        datePickerTimeline.setOnDateSelectedListener(new OnDateSelectedListener() {
-            @Override
-            public void onDateSelected(int year, int month, int day, int dayOfWeek) {
-                month = month + 1;
-                slotday = convertTwodigit(year) +"-"+ convertTwodigit(month) +"-"+ convertTwodigit(day);
-                Log.d("DATE_SELECTED",slotday);
-
-
-                //Do Something
-            }
-        });
+        SimpleDateFormat sdf = new SimpleDateFormat("EE\ndd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i = 0; i < 10; i++) {
+            Calendar calendar = new GregorianCalendar();
+            calendar.add(Calendar.DATE, i);
+            String day = sdf.format(calendar.getTime());
+            String day2 = sdf2.format(calendar.getTime());
+            DateSlot dateSlot = new DateSlot((i+1)+"",day,day2);
+            dateSlots.add(dateSlot);
+        }
+        dateSlotAdapter = new DateSlotAdapter(activity, dateSlots);
+        daterecyclerView.setAdapter(dateSlotAdapter);
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ArrayList<String> timeSlotsId = new ArrayList<String>();
-                int totalprice = 0;
+                int totalprice = Integer.parseInt(session.getData(Constant.PACKAGE_PRICE)) ;
+                selectedtimeSlots.clear();
                 for (TimeSlots model : timeSlots) {
                     if (model.isSelected()) {
                         timeSlotsId.add(model.getId());
-                        totalprice = Integer.parseInt(model.getPrices());
+                        totalprice += Integer.parseInt(model.getPrices());
+                        selectedtimeSlots.add(model);
 
                     }
                 }
@@ -143,11 +145,13 @@ public class VenuedetailsActivity extends AppCompatActivity {
                     session.setData(Constant.EVENT_DATE,slotday);
 
                     session.setData(Constant.TIME_SLOT_ID,timeSlotsId.toString());
-                    int price = Integer.parseInt(session.getData(Constant.PRICE));
-                    price = price + totalprice;
-                    session.setData(Constant.PRICE,""+price);
-                    Intent intent = new Intent(activity, Successfully_bookedActivity.class);
+                    session.setData(Constant.PRICE,""+totalprice);
+                    Intent intent = new Intent(activity, VenueSummaryActivity.class);
+                    Bundle args = new Bundle();
+                    args.putSerializable("ARRAYLIST",(Serializable)selectedtimeSlots);
+                    intent.putExtra("BUNDLE",args);
                     intent.putExtra(Constant.TYPE,"venue");
+                    intent.putExtra(Constant.ADDRESS,VenueAddress);
                     activity.startActivity(intent);
 
                 }

@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.example.myapplication.AboutusActivity;
 import com.example.myapplication.Contact_usActivity;
-import com.example.myapplication.CouponActivity;
+import com.example.myapplication.PromoCodeActivity;
 import com.example.myapplication.FaqsActivity;
 import com.example.myapplication.MyprofileActivity;
 import com.example.myapplication.NotificationActivity;
@@ -73,7 +73,7 @@ public class ProfileFragment extends Fragment {
         tvCoupons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), CouponActivity.class);
+                Intent intent = new Intent(getActivity(), PromoCodeActivity.class);
                 startActivity(intent);
             }
         });

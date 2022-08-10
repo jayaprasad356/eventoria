@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication.AllPackageActivity;
 import com.example.myapplication.CategoryListActivity;
 import com.example.myapplication.Package_listActivity;
 import com.example.myapplication.R;
@@ -104,7 +105,7 @@ public class HomeFragment extends Fragment {
         viewall_package.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Package_listActivity.class);
+                Intent intent = new Intent(getActivity(), AllPackageActivity.class);
                 startActivity(intent);
             }
         });

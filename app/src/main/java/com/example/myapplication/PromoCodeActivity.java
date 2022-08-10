@@ -1,25 +1,21 @@
 package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.myapplication.adapter.PackagelistAdapter;
-import com.example.myapplication.adapter.VenueAdapter;
+import com.example.myapplication.adapter.PromocodeAdapter;
 import com.example.myapplication.helper.ApiConfig;
 import com.example.myapplication.helper.Constant;
 import com.example.myapplication.helper.Session;
-import com.example.myapplication.model.Package;
-import com.example.myapplication.model.Venue;
+import com.example.myapplication.model.Promocode;
 import com.google.gson.Gson;
 
 import org.json.JSONArray;
@@ -30,73 +26,72 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Venue_listActivity extends AppCompatActivity {
+public class PromoCodeActivity extends AppCompatActivity {
+
 
     RecyclerView recyclerView;
     Activity activity;
-    VenueAdapter venueAdapter;
+    PromocodeAdapter promocodeAdapter;
     Session session;
+    ImageView back_btn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_venue_list);
-
-        recyclerView = findViewById(R.id.recyclerView);
-        activity = Venue_listActivity.this;
+        setContentView(R.layout.activity_promo_code);
+        activity = PromoCodeActivity.this;
         session = new Session(activity);
+        recyclerView = findViewById(R.id.recyclerView);
+        back_btn = findViewById(R.id.back_btn);
 
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(activity);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        back_btn.setOnClickListener(view -> onBackPressed());
 
-        venuelist();
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false));
 
 
+
+        mypromocode();
 
     }
 
-    private void venuelist() {
+    private void mypromocode() {
+
+
         Map<String, String> params = new HashMap<>();
-        params.put(Constant.PINCODE,session.getData(Constant.PINCODE));
+        params.put(Constant.GET_PROMO_CODES,"1");
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
-                    if (jsonObject.getBoolean(Constant.SUCCESS)) {
+                    if (!jsonObject.getBoolean(Constant.ERROR)) {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
-                        Log.d("ALL_V_ARR",jsonArray.toString());
                         Gson g = new Gson();
-                        ArrayList<Venue> venues = new ArrayList<>();
+                        ArrayList<Promocode> promocodes = new ArrayList<>();
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
 
                             if (jsonObject1 != null) {
-                                Venue group = g.fromJson(jsonObject1.toString(), Venue.class);
-                                venues.add(group);
+                                Promocode group = g.fromJson(jsonObject1.toString(), Promocode.class);
+                                promocodes.add(group);
                             } else {
                                 break;
                             }
                         }
-
-                        venueAdapter = new VenueAdapter(activity, venues);
-                        recyclerView.setAdapter(venueAdapter);
-
-
-
-
+                        promocodeAdapter = new PromocodeAdapter(activity, promocodes);
+                        recyclerView.setAdapter(promocodeAdapter);
                     }
-                    else {
-                        Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
-                    }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, activity, Constant.VENUE_LIST, params, true);
+        }, activity, Constant.VALIDATE_PROMO_CODE_URL, params, true);
+
+
     }
 }
