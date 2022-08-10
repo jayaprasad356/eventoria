@@ -43,7 +43,7 @@ public class NotificationActivity extends AppCompatActivity {
         activity = NotificationActivity.this;
         session = new Session(activity);
         recyclerView = findViewById(R.id.recyclerView);
-        ivBackbtn = findViewById(R.id.ivBackbtn);
+        ivBackbtn = findViewById(R.id.back_btn);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false));
 

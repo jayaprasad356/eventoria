@@ -25,7 +25,7 @@ public class Successfully_bookedActivity extends AppCompatActivity {
     Button view_booking_btn;
     RelativeLayout success_rl;
     Session session;
-    String Type;
+    String Type,PromoCode,TotalPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_successfully_booked);
         session = new Session(Successfully_bookedActivity.this);
         Type = getIntent().getStringExtra(Constant.TYPE);
+        PromoCode = getIntent().getStringExtra(Constant.PROMO_CODE);
+        TotalPrice = getIntent().getStringExtra(Constant.TOTAL_PRICE);
 
         view_booking_btn = findViewById(R.id.view_booking_btn);
         success_rl = findViewById(R.id.success_rl);
@@ -73,7 +75,8 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         params.put(Constant.PACKAGE_ID,Constant.PACKAGE_ID_VAL);
         params.put(Constant.VENUE_ID,session.getData(Constant.VENUE_ID));
         params.put(Constant.ADDRESS_ID,Constant.ADDRESS_ID_VAL);
-        params.put(Constant.PRICE,session.getData(Constant.PRICE));
+        params.put(Constant.PRICE,TotalPrice);
+        params.put(Constant.PROMO_CODE,PromoCode);
         params.put(Constant.EVENT_DATE,session.getData(Constant.EVENT_DATE));
         params.put(Constant.TYPE,Type);
         params.put(Constant.TIME_SLOT_ID,session.getData(Constant.TIME_SLOT_ID));

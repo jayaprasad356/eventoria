@@ -1,15 +1,19 @@
 package com.example.myapplication.model;
 
 public class Recommend {
-    String id,name,cover_photo,price,category_id,description,pincode;
+    String id,name,cover_photo,image1,image2,image3,image4,price,category_id,description,pincode;
     public Recommend(){
 
     }
 
-    public Recommend(String id, String name, String cover_photo, String price, String category_id, String description, String pincode) {
+    public Recommend(String id, String name, String cover_photo, String image1, String image2, String image3, String image4, String price, String category_id, String description, String pincode) {
         this.id = id;
         this.name = name;
         this.cover_photo = cover_photo;
+        this.image1 = image1;
+        this.image2 = image2;
+        this.image3 = image3;
+        this.image4 = image4;
         this.price = price;
         this.category_id = category_id;
         this.description = description;
@@ -38,6 +42,38 @@ public class Recommend {
 
     public void setCover_photo(String cover_photo) {
         this.cover_photo = cover_photo;
+    }
+
+    public String getImage1() {
+        return image1;
+    }
+
+    public void setImage1(String image1) {
+        this.image1 = image1;
+    }
+
+    public String getImage2() {
+        return image2;
+    }
+
+    public void setImage2(String image2) {
+        this.image2 = image2;
+    }
+
+    public String getImage3() {
+        return image3;
+    }
+
+    public void setImage3(String image3) {
+        this.image3 = image3;
+    }
+
+    public String getImage4() {
+        return image4;
+    }
+
+    public void setImage4(String image4) {
+        this.image4 = image4;
     }
 
     public String getPrice() {

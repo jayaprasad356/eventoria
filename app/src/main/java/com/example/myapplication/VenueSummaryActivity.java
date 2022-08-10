@@ -40,6 +40,7 @@ public class VenueSummaryActivity extends AppCompatActivity {
     ArrayList<TimeSlots> timeSlots = new ArrayList<>();
     RecyclerView recyclerView;
     TimeSlotsAdapter timeSlotsAdapter;
+    String PromoCode = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,6 @@ public class VenueSummaryActivity extends AppCompatActivity {
         Glide.with(activity).load(getPackage_img).into(ivProductimg);
         tvProductname.setText(getPackage_name);
         tvPrice.setText("₹"+getPackage_price);
-        tvProductname.setText("₹"+getPackage_name);
         tvadresss.setText(getAddress);
         tvTotalprice.setText("₹"+TotalPrice);
 
@@ -95,9 +95,10 @@ public class VenueSummaryActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                session.setData(Constant.TOTAL_PRICE,getPackage_price);
                 Intent intent = new Intent(activity,Successfully_bookedActivity.class);
-                intent.putExtra(Constant.TYPE,"own");
+                intent.putExtra(Constant.TYPE,"venue");
+                intent.putExtra(Constant.PROMO_CODE,PromoCode);
+                intent.putExtra(Constant.TOTAL_PRICE,TotalPrice);
                 startActivity(intent);
             }
         });
@@ -128,8 +129,9 @@ public class VenueSummaryActivity extends AppCompatActivity {
                         etPromoCode.setEnabled(false);
                         btnApply.setEnabled(false);
                         Toast.makeText(activity, "PromoCode Applied Succesfully", Toast.LENGTH_SHORT).show();
-                        getPackage_price = jsonObject.getString(Constant.DISCOUNTED_AMOUNT);
-                        tvTotalprice.setText("₹"+getPackage_price);
+                        TotalPrice = jsonObject.getString(Constant.DISCOUNTED_AMOUNT);
+                        tvTotalprice.setText("₹"+TotalPrice);
+                        PromoCode = etPromoCode.getText().toString().trim();
 
                     }
                     else {

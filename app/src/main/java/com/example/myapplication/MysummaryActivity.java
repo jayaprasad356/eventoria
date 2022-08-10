@@ -34,6 +34,7 @@ public class MysummaryActivity extends AppCompatActivity {
     Button btnConfirm;
     EditText etPromoCode;
     Button btnApply;
+    String PromoCode = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,9 +80,10 @@ public class MysummaryActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                session.setData(Constant.TOTAL_PRICE,getPackage_price);
                 Intent intent = new Intent(MysummaryActivity.this,Successfully_bookedActivity.class);
                 intent.putExtra(Constant.TYPE,"own");
+                intent.putExtra(Constant.PROMO_CODE,PromoCode);
+                intent.putExtra(Constant.TOTAL_PRICE,getPackage_price);
                 startActivity(intent);
             }
         });
@@ -109,6 +111,7 @@ public class MysummaryActivity extends AppCompatActivity {
                         Toast.makeText(activity, "PromoCode Applied Succesfully", Toast.LENGTH_SHORT).show();
                         getPackage_price = jsonObject.getString(Constant.DISCOUNTED_AMOUNT);
                         tvTotalprice.setText("₹"+getPackage_price);
+                        PromoCode = etPromoCode.getText().toString().trim();
 
                     }
                     else {

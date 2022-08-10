@@ -70,8 +70,6 @@ public class ChangeAddressActivity extends AppCompatActivity {
                     params.put(Constant.DISTRICT,etDistrict.getText().toString().trim());
                     params.put(Constant.PINCODE,etPincode.getText().toString().trim());
                     params.put(Constant.STATE,etState.getText().toString().trim());
-
-
                     ApiConfig.RequestToVolley((result, response) -> {
                         if (result) {
 
