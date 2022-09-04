@@ -59,6 +59,7 @@ public class Venue_listActivity extends AppCompatActivity {
     private void venuelist() {
         Map<String, String> params = new HashMap<>();
         params.put(Constant.PINCODE,session.getData(Constant.PINCODE));
+        params.put(Constant.CATEGORY_ID,session.getData(Constant.CATEGORY_ID));
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
                 try {

@@ -5,6 +5,7 @@
       <map>
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_all_package.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_faqs.xml" value="0.17552083333333332" />
+        <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_main.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_mysummary.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_notification.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_oder_list.xml" value="0.17552083333333332" />
@@ -16,8 +17,10 @@
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_venue_summary.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/activity_venuedetails.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/date_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/fragment_gift.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/fragment_home.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/order_items.xml" value="0.4466666666666667" />
+        <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/promo_code.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/layout/venue_items.xml" value="0.3333333333333333" />
         <entry key="..\:/Studio Projects/eventoria/app/src/main/res/menu/bottom_nav_menu.xml" value="0.17552083333333332" />
         <entry key="..\:/Studio Projects/eventoria_plus/app/src/main/res/drawable/border_slot.xml" value="0.14" />

@@ -10,7 +10,7 @@
 
     <item
         android:id="@+id/gift"
-        android:title="Gift"
+        android:title="Offer"
         android:icon="@drawable/ic_gift_icon"
         android:iconTintMode="add"
 

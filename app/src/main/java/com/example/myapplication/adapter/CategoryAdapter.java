@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.Package_listActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.helper.Constant;
+import com.example.myapplication.helper.Session;
 import com.example.myapplication.model.Category;
 
 
@@ -25,6 +26,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     final ArrayList<Category> categories;
     final int layout;
     final int totalsize;
+    Session session;
 
 
     public CategoryAdapter(Activity activity, ArrayList<Category> categories, int layout, int totalsize) {
@@ -43,6 +45,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holderParent, int position) {
+        session = new Session(activity);
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Category category = categories.get(position);
 
@@ -52,6 +55,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                session.setData(Constant.CATEGORY_ID,category.getId());
                 Intent intent = new Intent(activity, Package_listActivity.class);
                 intent.putExtra(Constant.CATEGORY_ID,category.getId());
                 activity.startActivity(intent);

@@ -37,7 +37,7 @@ public class PromocodeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         final ExploreItemHolder holder = (ExploreItemHolder) holderParent;
         final Promocode promocode = promocodes.get(position);
 
-        holder.title.setText(promocode.getPromo_code());
+        holder.title.setText("CODE:"+promocode.getPromo_code());
         holder.description.setText(promocode.getMessage());
         holder.discount.setText(promocode.getDiscount());
 
