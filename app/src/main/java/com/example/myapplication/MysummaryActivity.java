@@ -35,6 +35,7 @@ public class MysummaryActivity extends AppCompatActivity {
     EditText etPromoCode;
     Button btnApply;
     String PromoCode = "";
+    TextView viewPromo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class MysummaryActivity extends AppCompatActivity {
         btnConfirm = findViewById(R.id.btnConfirm);
         etPromoCode = findViewById(R.id.etPromoCode);
         btnApply = findViewById(R.id.btnApply);
+        viewPromo = findViewById(R.id.viewPromo);
 
 
         Glide.with(activity).load(getPackage_img).into(ivProductimg);
@@ -66,6 +68,16 @@ public class MysummaryActivity extends AppCompatActivity {
         tvProductname.setText("₹"+getPackage_name);
         tvadresss.setText(getAddress);
         tvTotalprice.setText("₹"+getPackage_price);
+
+        viewPromo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(activity,PrmoCodeActivity.class);
+                startActivity(intent1);
+                //showBottomSheetDialog();
+            }
+        });
+
 
         btnApply.setOnClickListener(new View.OnClickListener() {
             @Override

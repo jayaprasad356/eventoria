@@ -63,12 +63,6 @@ public class SliderAdapterExample extends
                 .fitCenter()
                 .into(viewHolder.imageViewBackground);
 
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(context, "This is item in position " + position, Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Override

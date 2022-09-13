@@ -72,6 +72,7 @@ public class VenueAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 intent.putExtra(Constant.VENUE_NAME,venue.getName());
                 intent.putExtra(Constant.VENUE_ADDRESS,venue.getAddress());
                 intent.putExtra(Constant.VENUE_IMG,venue.getCover_image());
+                intent.putExtra(Constant.DESCRIPION,venue.getDescription());
                 intent.putExtra(Constant.IMAGE1,venue.getImage1());
                 intent.putExtra(Constant.IMAGE2,venue.getImage2());
                 intent.putExtra(Constant.IMAGE3,venue.getImage3());

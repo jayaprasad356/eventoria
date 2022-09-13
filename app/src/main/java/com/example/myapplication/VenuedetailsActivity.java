@@ -6,12 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +44,8 @@ import java.util.GregorianCalendar;
 public class VenuedetailsActivity extends AppCompatActivity {
 
 
-    TextView tvVenuename,tvAddress;
-    String Venuename,VenueAddress,Venueimg,image1,image2,image3,image4;;
+    TextView tvVenuename,tvAddress,tvDescription,tvChooseDate;
+    String Venuename,VenueAddress,Venueimg,image1,image2,image3,image4,description;;
     Activity activity;
     TimeSlotsAdapter timeSlotsAdapter;
     RecyclerView recyclerView,daterecyclerView;
@@ -63,9 +65,12 @@ public class VenuedetailsActivity extends AppCompatActivity {
         activity = VenuedetailsActivity.this;
         session = new Session(activity);
         sliderView = findViewById(R.id.image_slider);
+        tvDescription = findViewById(R.id.tvDescription);
+        tvChooseDate = findViewById(R.id.tvChooseDate);
         Venuename = getIntent().getStringExtra(Constant.VENUE_NAME);
         VenueAddress = getIntent().getStringExtra(Constant.VENUE_ADDRESS);
         Venueimg = getIntent().getStringExtra(Constant.VENUE_IMG);
+        description = getIntent().getStringExtra(Constant.DESCRIPION);
         recyclerView = findViewById(R.id.recyclerView);
         daterecyclerView = findViewById(R.id.daterecyclerView);
         tvAddress = findViewById(R.id.tvAddress);
@@ -96,6 +101,7 @@ public class VenuedetailsActivity extends AppCompatActivity {
 
         tvVenuename.setText(Venuename);
         tvAddress.setText(VenueAddress);
+        tvDescription.setText(description);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(activity,2);
         recyclerView.setLayoutManager(gridLayoutManager);
 
@@ -159,8 +165,39 @@ public class VenuedetailsActivity extends AppCompatActivity {
                 Log.d("TIME_SLOT_ID",timeSlotsId.toString());
             }
         });
+        tvChooseDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
+            }
+        });
 
 
+    }
+
+    private void showDatePicker()
+    {
+        int mYear,mMonth,mDay;
+        // Get Current Date
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        monthOfYear = monthOfYear + 1;
+                        slotday = year + "-"+convertTwodigit(monthOfYear)+"-"+ convertTwodigit(dayOfMonth);
+                        tvChooseDate.setText(slotday);
+
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
     }
 
     private String convertTwodigit(int s)
@@ -173,7 +210,7 @@ public class VenuedetailsActivity extends AppCompatActivity {
     private void timeslotList()
     {
 
-        timeSlotsAdapter = new TimeSlotsAdapter(activity, timeSlots);
+        timeSlotsAdapter = new TimeSlotsAdapter(activity, timeSlots,"venue");
         recyclerView.setAdapter(timeSlotsAdapter);
     }
     private void slideslist() {

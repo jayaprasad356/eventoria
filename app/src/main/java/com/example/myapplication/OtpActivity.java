@@ -66,11 +66,7 @@ public class OtpActivity extends AppCompatActivity {
 
     private void login() {
         Map<String, String> params = new HashMap<>();
-        //request
-
         params.put(Constant.MOBILE,MobileNumber);
-
-
         ApiConfig.RequestToVolley((result, response) -> {
             if (result) {
 

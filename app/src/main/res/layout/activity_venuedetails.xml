@@ -96,6 +96,15 @@
                     android:textColor="@color/black"
                     android:textSize="20dp"
                     android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tvDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="8dp"
+                    android:text=""
+                    android:textColor="@color/black"
+                    />
 
 
                 <TextView
@@ -130,7 +139,19 @@
                     android:layout_margin="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     />
+                <TextView
+                    android:id="@+id/tvChooseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Choose Date"
+                    android:layout_marginStart="20dp"
+                    android:background="@drawable/bottom_bg"
+                    android:backgroundTint="@color/primary"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"/>
 
 
 

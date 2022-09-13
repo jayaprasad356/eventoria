@@ -12,10 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,120 +41,129 @@
 
         </RelativeLayout>
 
-
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:padding="10dp"
-            >
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:id="@+id/imgcard"
-                app:cardCornerRadius="10dp"
-                android:layout_marginLeft="10dp"
-                >
-
-
-
-                <ImageView
-                    android:id="@+id/ivProductimg"
-                    android:scaleType="fitXY"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-            </com.google.android.material.card.MaterialCardView>
-
+            android:layout_height="match_parent">
             <LinearLayout
-                android:layout_centerInParent="true"
-                android:layout_toRightOf="@+id/imgcard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
                 android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tvProductname"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="product name"
-                    android:textStyle="bold"
-                    android:textColor="@color/secodary"
-                    android:textSize="16dp"
-                    />
+                    android:padding="10dp"
+                    >
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:id="@+id/imgcard"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+
+
+
+                        <ImageView
+                            android:id="@+id/ivProductimg"
+                            android:scaleType="fitXY"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <LinearLayout
+                        android:layout_centerInParent="true"
+                        android:layout_toRightOf="@+id/imgcard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvProductname"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="product name"
+                            android:textStyle="bold"
+                            android:textColor="@color/secodary"
+                            android:textSize="16dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tvPrice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Price"
+                            android:textSize="14dp"
+                            android:layout_marginTop="10dp"
+                            android:textColor="@color/primary"
+                            />
+
+
+
+
+                    </LinearLayout>
+
+
+                </RelativeLayout>
+
 
                 <TextView
-                    android:id="@+id/tvPrice"
+                    android:id="@+id/tvadresss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="24 East street "
+                    android:textSize="14dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="4dp"
+                    />
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/etPromoCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:layout_weight="3"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/edittext_curve_bg"
+                        android:hint="Enter Promo Code"/>
+                    <Button
+                        android:id="@+id/btnApply"
+                        android:layout_weight="1"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Apply"/>
+                </LinearLayout>
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Price"
-                    android:textSize="14dp"
-                    android:layout_marginTop="10dp"
                     android:textColor="@color/primary"
-                    />
+                    android:id="@+id/viewPromo"
+                    android:layout_gravity="center"
+                    android:text="@string/viewpromocode"/>
+
+
 
 
 
 
             </LinearLayout>
 
-
-        </RelativeLayout>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Venue Address"
-            android:textSize="20dp"
-            android:textColor="@color/primary"
-            android:textStyle="bold"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
-            />
-
-        <TextView
-            android:id="@+id/tvadresss"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="24 East street "
-            android:textSize="14dp"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="50dp"
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/etPromoCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_weight="3"
-                android:layout_margin="5dp"
-                android:background="@drawable/edittext_curve_bg"
-                android:hint="Enter Promo Code"/>
-            <Button
-                android:id="@+id/btnApply"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:layout_margin="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Apply"/>
-        </LinearLayout>
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
@@ -243,10 +248,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Confrim to book"
-                android:layout_marginRight="50dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 />
 
 

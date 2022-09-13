@@ -4,13 +4,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Venue implements Serializable {
-    String id,name,address,cover_image,price,pincode,image1,image2,image3,image4;
+    String id,name,address,cover_image,price,pincode,image1,image2,image3,image4,description;
     ArrayList<TimeSlots> timeslots;
     public Venue(){
 
     }
 
-    public Venue(String id, String name, String address, String cover_image, String price, String pincode, String image1, String image2, String image3, String image4, ArrayList<TimeSlots> timeslots) {
+    public Venue(String id, String name, String address, String cover_image, String price, String pincode, String image1, String image2, String image3, String image4, String description) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -21,7 +21,7 @@ public class Venue implements Serializable {
         this.image2 = image2;
         this.image3 = image3;
         this.image4 = image4;
-        this.timeslots = timeslots;
+        this.description = description;
     }
 
     public String getId() {
@@ -102,6 +102,14 @@ public class Venue implements Serializable {
 
     public void setImage4(String image4) {
         this.image4 = image4;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public ArrayList<TimeSlots> getTimeslots() {
