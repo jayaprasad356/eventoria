@@ -19,12 +19,14 @@ public class Constant {
     public static final String NOTIFICATION_LIST = BaseUrl + "notifications-list.php";
     public static final String MYPROMOCODE = BaseUrl + "promocode-list.php";
     public static final String VALIDATE_PROMO_CODE_URL = BaseUrl + "validate-promo-code.php";
+    public static final String CANCEL_ORDER_URL = BaseUrl + "cancel-order.php";
 
     public static final String WebSiteUrl = ""; //Admin panel url
     public static final String ID = "id";
     public static final String PROFILE = "profile";
     public static final String GET_PROMO_CODES = "get_promo_codes";
     public static final String USER_ID = "user_id";
+    public static final String ORDER_ID = "order_id";
     public static final String PROMO_CODE = "promo_code";
     public static final String CATEGORY_ID = "category_id";
     public static final String SEARCH = "search";

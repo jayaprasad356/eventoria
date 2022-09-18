@@ -1,12 +1,12 @@
 package com.example.myapplication.model;
 
 public class Order {
-    String id,package_name,price,name,address,start_time,end_time,type;
+    String id,package_name,price,name,address,start_time,end_time,type,cancel_order,status;
     public Order(){
 
     }
 
-    public Order(String id, String package_name, String price, String name, String address, String start_time, String end_time, String type) {
+    public Order(String id, String package_name, String price, String name, String address, String start_time, String end_time, String type, String cancel_order, String status) {
         this.id = id;
         this.package_name = package_name;
         this.price = price;
@@ -15,6 +15,8 @@ public class Order {
         this.start_time = start_time;
         this.end_time = end_time;
         this.type = type;
+        this.cancel_order = cancel_order;
+        this.status = status;
     }
 
     public String getId() {
@@ -79,5 +81,21 @@ public class Order {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getCancel_order() {
+        return cancel_order;
+    }
+
+    public void setCancel_order(String cancel_order) {
+        this.cancel_order = cancel_order;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

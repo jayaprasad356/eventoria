@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -83,7 +84,7 @@ public class OrderListActivity extends AppCompatActivity {
         finish();
     }
 
-    private void orderList()
+    public void orderList()
     {
 
         Map<String, String> params = new HashMap<>();
@@ -93,11 +94,12 @@ public class OrderListActivity extends AppCompatActivity {
             if (result) {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
+                    ArrayList<Order> venues = new ArrayList<>();
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
                         JSONObject object = new JSONObject(response);
                         JSONArray jsonArray = object.getJSONArray(Constant.DATA);
                         Gson g = new Gson();
-                        ArrayList<Order> venues = new ArrayList<>();
+
 
                         for (int i = 0; i < jsonArray.length(); i++) {
                             JSONObject jsonObject1 = jsonArray.getJSONObject(i);
@@ -109,17 +111,12 @@ public class OrderListActivity extends AppCompatActivity {
                                 break;
                             }
                         }
-
-                        orderAdapter = new OrderAdapter(activity, venues);
-                        recyclerView.setAdapter(orderAdapter);
-
-
-
-
                     }
                     else {
                         Toast.makeText(activity, ""+String.valueOf(jsonObject.getString(Constant.MESSAGE)), Toast.LENGTH_SHORT).show();
                     }
+                    orderAdapter = new OrderAdapter(activity, venues);
+                    recyclerView.setAdapter(orderAdapter);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -190,6 +190,7 @@ public class VenueSummaryActivity extends AppCompatActivity {
         params.put(Constant.VALIDATE_PROMO_CODE,"1");
         params.put(Constant.USER_ID,session.getData(Constant.ID));
         params.put(Constant.PROMO_CODE,etPromoCode.getText().toString().trim());
+        params.put(Constant.CATEGORY_ID,session.getData(Constant.CATEGORY_ID));
         params.put(Constant.TOTAL,getPackage_price);
         ApiConfig.RequestToVolley((result, response) -> {
 

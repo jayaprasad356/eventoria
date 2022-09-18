@@ -82,6 +82,7 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         params.put(Constant.TYPE,Type);
         params.put(Constant.TIME_SLOT_ID,session.getData(Constant.TIME_SLOT_ID));
          ApiConfig.RequestToVolley((result, response) -> {
+             Log.d("BOOKED_RES",response);
             if (result) {
 
                 try {

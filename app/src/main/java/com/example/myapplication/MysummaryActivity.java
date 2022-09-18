@@ -109,6 +109,7 @@ public class MysummaryActivity extends AppCompatActivity {
         params.put(Constant.USER_ID,session.getData(Constant.ID));
         params.put(Constant.PROMO_CODE,etPromoCode.getText().toString().trim());
         params.put(Constant.TOTAL,getPackage_price);
+        params.put(Constant.CATEGORY_ID,session.getData(Constant.CATEGORY_ID));
         ApiConfig.RequestToVolley((result, response) -> {
 
             if (result) {

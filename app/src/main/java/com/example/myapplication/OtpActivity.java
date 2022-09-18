@@ -47,20 +47,17 @@ public class OtpActivity extends AppCompatActivity {
 
         tvMobileno.setText("OTP sent to "+ MobileNumber);
 
-        continue_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        continue_btn.setOnClickListener(v -> {
 
-                if(otp_view.getOTP().length()==6){
-                    login();
-                }
-
-                else {
-
-                    Toast.makeText(OtpActivity.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
-                }
-
+            if(otp_view.getOTP().length()==6){
+                login();
             }
+
+            else {
+
+                Toast.makeText(OtpActivity.this, "Invalid OTP", Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 
