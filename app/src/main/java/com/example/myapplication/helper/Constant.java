@@ -1,7 +1,7 @@
 package com.example.myapplication.helper;
 
 public class Constant {
-    public static final String MainBaseUrl = "http://eventoriaplus.greymatterworks.in/";
+    public static final String MainBaseUrl = "https://adminmanager.eventoriaplus.com/";
     //public static final String MainBaseUrl = "http://192.168.43.38/eventoria_plus/";
     public static final String BaseUrl = MainBaseUrl + "api/";
     public static final String LOGIN_URL = BaseUrl + "login.php";
@@ -20,6 +20,7 @@ public class Constant {
     public static final String MYPROMOCODE = BaseUrl + "promocode-list.php";
     public static final String VALIDATE_PROMO_CODE_URL = BaseUrl + "validate-promo-code.php";
     public static final String CANCEL_ORDER_URL = BaseUrl + "cancel-order.php";
+    public static final String PACKAGE_BY_ID_URL = BaseUrl + "package-by-id.php";
 
     public static final String WebSiteUrl = ""; //Admin panel url
     public static final String ID = "id";
@@ -41,6 +42,7 @@ public class Constant {
     public static final String VENUE_IMG = "venue_img";
     public static final String VENUE_ADDRESS = "venue_address";
     public static final String IMAGE_PACKAGE = "image";
+    public static final String COVER_PHOTO = "cover_photo";
     public static final String IMAGE1 = "image1";
     public static final String IMAGE2 = "image2";
     public static final String IMAGE3 = "image3";

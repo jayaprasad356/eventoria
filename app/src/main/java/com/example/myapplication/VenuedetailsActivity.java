@@ -215,11 +215,11 @@ public class VenuedetailsActivity extends AppCompatActivity {
     }
     private void slideslist() {
         ArrayList<Slide> slides = new ArrayList<>();
-        Slide coverimg = new Slide("1","",Venueimg,"");
-        Slide slide1 = new Slide("1","",image1,"");
-        Slide slide2 = new Slide("1","",image2,"");
-        Slide slide3 = new Slide("1","",image3,"");
-        Slide slide4 = new Slide("1","",image4,"");
+        Slide coverimg = new Slide("1","",Venueimg,"","","","","");
+        Slide slide1 = new Slide("1","",image1,"","","","","");
+        Slide slide2 = new Slide("1","",image2,"","","","","");
+        Slide slide3 = new Slide("1","",image3,"","","","","");
+        Slide slide4 = new Slide("1","",image4,"","","","","");
         if (!Venueimg.equals("")){
             slides.add(coverimg);
 

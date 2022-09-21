@@ -256,6 +256,7 @@ public class HomeFragment extends Fragment {
 
         Map<String, String> params = new HashMap<>();
         ApiConfig.RequestToVolley((result, response) -> {
+            Log.d("SLIDE_RES",response);
 
             if (result) {
                 try {
