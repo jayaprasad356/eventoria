@@ -78,6 +78,7 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         params.put(Constant.PRICE,TotalPrice);
         params.put(Constant.PROMO_CODE,PromoCode);
         params.put(Constant.EVENT_DATE,session.getData(Constant.EVENT_DATE));
+        params.put(Constant.EVENT_TIME,session.getData(Constant.EVENT_TIME));
         params.put(Constant.PINCODE,session.getData(Constant.PINCODE));
         params.put(Constant.TYPE,Type);
         params.put(Constant.TIME_SLOT_ID,session.getData(Constant.TIME_SLOT_ID));

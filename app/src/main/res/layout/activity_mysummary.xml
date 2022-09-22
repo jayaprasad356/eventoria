@@ -106,6 +106,62 @@
 
 
         </RelativeLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_margin="5dp"
+            android:background="@color/grey"/>
+
+        <LinearLayout
+            android:id="@+id/l1event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/primary"
+                    android:text="Event Date"/>
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_curve_bg"
+                    android:hint="Event Date"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/primary"
+                    android:text="Event Time"/>
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_weight="3"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/edittext_curve_bg"
+                    android:hint="Event Time"/>
+
+            </LinearLayout>
+        </LinearLayout>
 
 
         <TextView
@@ -116,7 +172,7 @@
             android:textColor="@color/primary"
             android:textStyle="bold"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="50dp"
+
             />
 
         <TextView

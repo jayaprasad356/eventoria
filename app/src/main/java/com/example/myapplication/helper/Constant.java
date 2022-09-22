@@ -58,6 +58,7 @@ public class Constant {
     public static final String ADDRESS_ID = "address_id";
     public static final String PRICE = "price";
     public static final String EVENT_DATE = "event_date";
+    public static final String EVENT_TIME = "event_time";
     public static final String ERROR = "error";
     public static final String TOTAL_PRICE = "total_price";
     public static final String DISCOUNTED_AMOUNT = "discounted_amount";

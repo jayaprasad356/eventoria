@@ -3,6 +3,8 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -22,6 +25,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,7 +39,8 @@ public class MysummaryActivity extends AppCompatActivity {
     EditText etPromoCode;
     Button btnApply;
     String PromoCode = "";
-    TextView viewPromo;
+    TextView viewPromo,tvDate,tvTime;
+    String EventDate = "",EventTime = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +65,8 @@ public class MysummaryActivity extends AppCompatActivity {
         etPromoCode = findViewById(R.id.etPromoCode);
         btnApply = findViewById(R.id.btnApply);
         viewPromo = findViewById(R.id.viewPromo);
+        tvDate = findViewById(R.id.tvDate);
+        tvTime = findViewById(R.id.tvTime);
 
 
         Glide.with(activity).load(getPackage_img).into(ivProductimg);
@@ -92,15 +99,87 @@ public class MysummaryActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MysummaryActivity.this,Successfully_bookedActivity.class);
-                intent.putExtra(Constant.TYPE,"own");
-                intent.putExtra(Constant.PROMO_CODE,PromoCode);
-                intent.putExtra(Constant.TOTAL_PRICE,getPackage_price);
-                startActivity(intent);
+                if (EventDate.isEmpty()){
+                    Toast.makeText(activity, "Select Event Date", Toast.LENGTH_SHORT).show();
+                }
+                else if (EventTime.isEmpty()){
+                    Toast.makeText(activity, "Select Event Time", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    session.setData(Constant.EVENT_DATE,EventDate);
+                    session.setData(Constant.EVENT_TIME,EventTime);
+                    Intent intent = new Intent(MysummaryActivity.this,Successfully_bookedActivity.class);
+                    intent.putExtra(Constant.TYPE,"own");
+                    intent.putExtra(Constant.PROMO_CODE,PromoCode);
+                    intent.putExtra(Constant.TOTAL_PRICE,getPackage_price);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+        tvDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDatePicker();
+
+            }
+        });
+        tvTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showTimePicker();
+
             }
         });
 
     }
+    private void showTimePicker()
+    {
+        int mHour,mMinute;
+        // Get Current Time
+        final Calendar c = Calendar.getInstance();
+        mHour = c.get(Calendar.HOUR_OF_DAY);
+        mMinute = c.get(Calendar.MINUTE);
+
+        // Launch Time Picker Dialog
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                          int minute) {
+                        EventTime = hourOfDay + ":" + minute;
+
+                        tvTime.setText(EventTime);
+                    }
+                }, mHour, mMinute, false);
+        timePickerDialog.show();
+    }
+
+    private void showDatePicker()
+    {
+        int mYear,mMonth,mDay;
+        // Get Current Date
+        final Calendar c = Calendar.getInstance();
+        mYear = c.get(Calendar.YEAR);
+        mMonth = c.get(Calendar.MONTH);
+        mDay = c.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, year, monthOfYear, dayOfMonth) -> {
+            monthOfYear = monthOfYear + 1;
+            EventDate = year + "-"+convertTwodigit(monthOfYear)+"-"+ convertTwodigit(dayOfMonth);
+            tvDate.setText(EventDate);
+
+        }, mYear, mMonth, mDay);
+        datePickerDialog.show();
+    }
+    private String convertTwodigit(int s)
+    {
+        long val = (long) s;
+        String format = "%1$02d";
+        return (String.format(format,val));
+    }
+
 
     private void applyPromoCode()
     {
