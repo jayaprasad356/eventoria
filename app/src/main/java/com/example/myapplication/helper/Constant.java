@@ -17,7 +17,6 @@ public class Constant {
     public static final String SLIDES_LIST = BaseUrl + "slides-list.php";
     public static final String UPDATE_PROFILE = BaseUrl + "updateprofile.php";
     public static final String NOTIFICATION_LIST = BaseUrl + "notifications-list.php";
-    public static final String MYPROMOCODE = BaseUrl + "promocode-list.php";
     public static final String VALIDATE_PROMO_CODE_URL = BaseUrl + "validate-promo-code.php";
     public static final String CANCEL_ORDER_URL = BaseUrl + "cancel-order.php";
     public static final String PACKAGE_BY_ID_URL = BaseUrl + "package-by-id.php";
@@ -69,6 +68,7 @@ public class Constant {
     public static final  String PACKAGE_ID = "package_id";
     public static final  String PACKAGE_IMAGE = "package_image";
     public static final String DISTRICT = "district";
+    public static final String PLACE = "place";
     public static final String TYPE = "type";
     public static final String TIME_SLOT_ID = "time_slot_id";
     public static final String VENUE_ID = "venue_id";

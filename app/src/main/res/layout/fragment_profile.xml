@@ -157,10 +157,20 @@
                 android:layout_height="70dp"
                 android:text="Sign Out"
                 android:textAllCaps="false"
-                android:layout_margin="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="10dp"
                 app:shapeAppearance="@style/ShapeAppearanceOverlay.MaterialComponents.MaterialCalendar.Day"
 
                 />
+            <TextView
+                android:id="@+id/developedby"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/developedby"
+                android:textColor="@color/primary"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:textStyle="bold"/>
 
 
 

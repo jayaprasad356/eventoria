@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -23,7 +24,7 @@ import java.util.Map;
 
 public class Successfully_bookedActivity extends AppCompatActivity {
     Button view_booking_btn;
-    RelativeLayout success_rl;
+    LinearLayout lsucess, lfailed;
     Session session;
     String Type,PromoCode,TotalPrice;
 
@@ -37,7 +38,8 @@ public class Successfully_bookedActivity extends AppCompatActivity {
         TotalPrice = getIntent().getStringExtra(Constant.TOTAL_PRICE);
 
         view_booking_btn = findViewById(R.id.view_booking_btn);
-        success_rl = findViewById(R.id.success_rl);
+        lsucess = findViewById(R.id.lsucess);
+        lfailed = findViewById(R.id.lfailed);
 
         view_booking_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,12 +91,14 @@ public class Successfully_bookedActivity extends AppCompatActivity {
                 try {
                     JSONObject jsonObject = new JSONObject(response);
                     if (jsonObject.getBoolean(Constant.SUCCESS)) {
-                        success_rl.setVisibility(View.VISIBLE);
+                        lsucess.setVisibility(View.VISIBLE);
                     }
                     else {
+                        lfailed.setVisibility(View.VISIBLE);
                         Toast.makeText(Successfully_bookedActivity.this, ""+jsonObject.getString(Constant.MESSAGE), Toast.LENGTH_SHORT).show();
                     }
                 } catch (JSONException e){
+                    lfailed.setVisibility(View.VISIBLE);
                     e.printStackTrace();
                 }
 

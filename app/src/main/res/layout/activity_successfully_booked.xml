@@ -7,23 +7,19 @@
     tools:context=".Successfully_bookedActivity">
 
     <RelativeLayout
-        android:id="@+id/success_rl"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         >
 
         <LinearLayout
+           android:id="@+id/lsucess"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_centerInParent="true"
             >
-
-
-
-
-
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -58,6 +54,39 @@
 
 
         </LinearLayout>
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/lfailed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerInParent="true"
+            >
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ic_baseline_close_24"
+                />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Booking Failed"
+                android:textColor="@color/primary"
+                android:textSize="22dp"
+                android:textStyle="italic|bold"
+                android:gravity="center"
+                android:layout_marginTop="20dp"
+                />
+
+
+
+
+        </LinearLayout>
+
+
 
 
 

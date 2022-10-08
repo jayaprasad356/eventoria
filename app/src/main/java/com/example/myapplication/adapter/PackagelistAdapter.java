@@ -2,6 +2,7 @@ package com.example.myapplication.adapter;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,6 +51,7 @@ public class PackagelistAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         holder.tvPack_name.setText(aPackage.getName());
         holder.tvPrice.setText("Rs. "+aPackage.getPrice());
         holder.tvDescription.setText(aPackage.getDescription());
+        Log.d("PACKAGE_LIST_DES",aPackage.getDescription());
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {

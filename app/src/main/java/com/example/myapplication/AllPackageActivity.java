@@ -94,7 +94,7 @@ public class AllPackageActivity extends AppCompatActivity {
                     Toast.makeText(activity, String.valueOf(e), Toast.LENGTH_SHORT).show();
                 }
             }
-        }, activity, Constant.ALLPACKAGE_LIST, params, true);
+        }, activity, Constant.RECOMMENDED_LIST, params, true);
 
 
     }

@@ -1,6 +1,7 @@
 package com.example.myapplication.fragment;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -27,6 +28,7 @@ public class ProfileFragment extends Fragment {
     TextView myorder_tv,contact_us_tv,notification_tv,tvMyprofile,tvName,tvMobileno,tvFaqs,tvAboutus,tvCoupons;
     Button signOut;
     Session session ;
+    TextView developedby;
 
 
 
@@ -53,6 +55,7 @@ public class ProfileFragment extends Fragment {
         tvFaqs = root.findViewById(R.id.tvFaqs);
         tvCoupons = root.findViewById(R.id.tvCoupons);
         tvAboutus = root.findViewById(R.id.tvAboutus);
+        developedby = root.findViewById(R.id.developedby);
         session = new Session(getActivity());
 
 
@@ -110,6 +113,15 @@ public class ProfileFragment extends Fragment {
             public void onClick(View v) {
 
                 session.logoutUser(getActivity());
+            }
+        });
+        developedby.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://webapster.com/";
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(url));
+                startActivity(i);
             }
         });
 
